@@ -8023,6 +8023,11 @@ components:
           type: string
         errorDetail:
           type: string
+        historyPolicy:
+          enum:
+          - strict
+          - provider_history
+          type: string
         id:
           type: string
         noticeAcknowledgedAt:
@@ -8070,6 +8075,7 @@ components:
       - sourceMode
       - targetMode
       - policy
+      - historyPolicy
       - phase
       - createdAt
       - updatedAt
@@ -8829,6 +8835,11 @@ components:
       type: object
     StartSessionInterfaceTransitionRequest:
       properties:
+        historyPolicy:
+          enum:
+          - strict
+          - provider_history
+          type: string
         policy:
           enum:
           - drain

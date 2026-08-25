@@ -2773,6 +2773,8 @@ export interface components {
             createdAt: string;
             errorCode?: string;
             errorDetail?: string;
+            /** @enum {string} */
+            historyPolicy: "strict" | "provider_history";
             id: string;
             /** Format: date-time */
             noticeAcknowledgedAt?: null | string;
@@ -3071,6 +3073,8 @@ export interface components {
             configuration?: string;
         };
         StartSessionInterfaceTransitionRequest: {
+            /** @enum {string} */
+            historyPolicy?: "strict" | "provider_history";
             /** @enum {string} */
             policy: "drain" | "interrupt";
             /** @enum {string} */
