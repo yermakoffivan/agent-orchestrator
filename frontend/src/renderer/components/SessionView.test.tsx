@@ -1585,8 +1585,12 @@ describe("SessionView", () => {
 		};
 
 		render(<SessionView sessionId="sess-1" />);
-		expect(screen.getByText(/Recovery attempt failed/)).toHaveAttribute("role", "alert");
-		expect(screen.getByText(/Recovery attempt failed/)).toHaveTextContent("no longer available");
+		const [announcement] = screen.getAllByRole("alert");
+		expect(screen.getAllByRole("alert")).toHaveLength(1);
+		expect(announcement).toHaveTextContent("Interface switch failed (AO-2L).");
+		expect(announcement).toHaveTextContent(
+			"Recovery attempt failed: Provider history recovery is no longer available.",
+		);
 	});
 
 	it("returns to the source terminal while a failed Chat switch mode refetch settles", () => {
